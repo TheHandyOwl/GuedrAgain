@@ -41,11 +41,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             else -> "Se ha pulsado algún botón"
         })
 
-        // Solución 4: preparabamos el when
+        // Solución 4: cambiando la imagen con un when
+        /*
         when (v?.id) {
             R.id.stone_button -> offlineWeatherImage?.setImageResource(R.drawable.offline_weather)
             R.id.donkey_button -> offlineWeatherImage?.setImageResource(R.drawable.offline_weather2)
         }
+        */
+
+        //Solución 5 y final: cambiamos la imagen o devolvemos siempre else
+        offlineWeatherImage?.setImageResource(when (v?.id) {
+            R.id.donkey_button -> R.drawable.offline_weather2
+            else -> R.drawable.offline_weather
+        })
 
     }
 
