@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
         Log.v(TAG, "Pasando por onSaveInstanceState")
         outState?.putString("clave","valor")
     }
