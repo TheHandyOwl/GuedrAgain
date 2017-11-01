@@ -2,6 +2,6 @@
     <string name="app_name">GuedrAgain</string>
     <string name="greetings">Hi dude!</string>
     <string name="offline_description">Imagen que representa el tiempo cuando no hay internet</string>
-    <string name="button_piedra">Piedra</string>
-    <string name="button_donkey">Burro</string>
+    <string name="stone_button">Piedra</string>
+    <string name="donkey_button">Burro</string>
 </resources>
