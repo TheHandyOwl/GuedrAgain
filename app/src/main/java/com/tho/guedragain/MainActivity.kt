@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         */
 
         // Solución 3: id en vez de getId()
+        /*
         if (v != null) {
             if (v.id == R.id.stone_button) {
                 Log.v(TAG, "Se ha pulsado stoneButton")
@@ -70,6 +71,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 Log.v(TAG, "Se ha pulsado algún botón")
             }
+        }
+        */
+
+        // Solución 4: when (v?.id) y closures
+        when (v?.id) {
+            R.id.stone_button -> {
+                val a = 5
+                val b = 7
+                val c = a + b
+                Log.v(TAG, "Se ha pulsado stoneButton")
+            }
+            R.id.donkey_button -> Log.v(TAG, "Se ha pulsado donkeyButton")
+            else -> Log.v(TAG, "Se ha pulsado algún botón")
         }
 
     }
