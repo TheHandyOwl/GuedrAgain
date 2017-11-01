@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         */
 
         // Solución 4: when (v?.id) y closures
+        /*
         when (v?.id) {
             R.id.stone_button -> {
                 val a = 5
@@ -85,6 +86,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.donkey_button -> Log.v(TAG, "Se ha pulsado donkeyButton")
             else -> Log.v(TAG, "Se ha pulsado algún botón")
         }
+        */
+
+        // Solución 5: juntando el when con el Log.v
+        Log.v(TAG, when (v?.id) {
+            R.id.stone_button -> "Se ha pulsado stoneButton"
+            R.id.donkey_button -> "Se ha pulsado donkeyButton"
+            else -> "Se ha pulsado algún botón"
+        })
 
     }
 
