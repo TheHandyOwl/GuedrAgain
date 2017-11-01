@@ -8,8 +8,9 @@
 
     <TextView
         android:id="@+id/greetingsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="center|right"
         android:layout_gravity="top|center_horizontal"
         android:text="@string/greetings"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
