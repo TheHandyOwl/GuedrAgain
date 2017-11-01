@@ -5,8 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    var stoneButton : Button? = null
+    var donkeyButton : Button? = null
 
     val TAG = MainActivity::class.java.canonicalName
 
@@ -14,11 +18,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var stoneButton = findViewById<Button>(R.id.stone_button)
-        var donkeyButton = findViewById<Button>(R.id.donkey_button)
+        stoneButton = findViewById<Button>(R.id.stone_button)
+        donkeyButton = findViewById<Button>(R.id.donkey_button)
 
-        stoneButton.setOnClickListener(this)
-        donkeyButton.setOnClickListener(this)
+        stoneButton?.setOnClickListener(this)
+        donkeyButton?.setOnClickListener(this)
 
         Log.v(TAG, "Pasando por onCreate")
 
