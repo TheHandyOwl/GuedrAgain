@@ -37,7 +37,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         Log.v(TAG, "Pasando por onClick")
 
-        // Solución 1
+        // Solución 1: comparando vistas
+        /*
         if (v == stoneButton) {
             Log.v(TAG, "Se ha pulsado stoneButton")
         } else if (v == donkeyButton) {
@@ -45,6 +46,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } else {
             Log.v(TAG, "Se ha pulsado algún botón")
         }
+        */
+
+        // Solución 2: comparando el id de la vista, evitando vistas nulas
+        if (v != null) {
+            if (v.getId() == R.id.stone_button) {
+                Log.v(TAG, "Se ha pulsado stoneButton")
+            } else if (v.getId() == R.id.donkey_button) {
+                Log.v(TAG, "Se ha pulsado donkeyButton")
+            } else {
+                Log.v(TAG, "Se ha pulsado algún botón")
+            }
+        }
+
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
