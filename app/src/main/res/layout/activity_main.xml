@@ -10,20 +10,20 @@
     <ImageView
         android:id="@+id/greetingsImage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/offline_weather"
-        android:contentDescription="@string/offline_description" />
-
-    <TextView
-        android:id="@+id/greetingsText"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:background="#FABADA"
-        android:gravity="center|end"
-        android:text="@string/greetings"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:contentDescription="@string/offline_description"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/offline_weather" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_piedra" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_donkey" />
 
 </LinearLayout>
