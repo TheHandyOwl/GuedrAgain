@@ -13,7 +13,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical|center_horizontal"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/offline_weather"/>
+        app:srcCompat="@drawable/offline_weather"
+        android:contentDescription="@string/offline_description" />
 
     <TextView
         android:id="@+id/greetingsText"
@@ -21,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
         android:background="#FABADA"
-        android:gravity="center|right"
+        android:gravity="center|end"
         android:text="@string/greetings"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
