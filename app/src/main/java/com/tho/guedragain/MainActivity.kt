@@ -36,6 +36,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         Log.v(TAG, "Pasando por onClick")
+
+        // Solución 1
+        if (v == stoneButton) {
+            Log.v(TAG, "Se ha pulsado stoneButton")
+        } else if (v == donkeyButton) {
+            Log.v(TAG, "Se ha pulsado donkeyButton")
+        } else {
+            Log.v(TAG, "Se ha pulsado algún botón")
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
