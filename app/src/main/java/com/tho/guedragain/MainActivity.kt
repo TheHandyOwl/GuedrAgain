@@ -3,6 +3,7 @@ package com.tho.guedragain
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,6 +12,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        var stoneButton = findViewById<Button>(R.id.stone_button)
+        var donkeyButton = findViewById<Button>(R.id.donkey_button)
 
         Log.v(TAG, "Pasando por onCreate")
 
@@ -26,4 +30,5 @@ class MainActivity : AppCompatActivity() {
         Log.v(TAG, "Pasando por onSaveInstanceState")
         outState?.putString("clave","valor")
     }
+
 }
