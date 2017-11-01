@@ -9,8 +9,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    var stoneButton : Button? = null
-    var donkeyButton : Button? = null
+    // No necesitamos botones como atributos
+    //var stoneButton : Button? = null
+    //var donkeyButton : Button? = null
 
     val TAG = MainActivity::class.java.canonicalName
 
@@ -18,11 +19,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        stoneButton = findViewById<Button>(R.id.stone_button)
-        donkeyButton = findViewById<Button>(R.id.donkey_button)
+        // Ya no tenemos los botones como atributos
+        //stoneButton = findViewById<Button>(R.id.stone_button)
+        //donkeyButton = findViewById<Button>(R.id.donkey_button)
 
-        stoneButton?.setOnClickListener(this)
-        donkeyButton?.setOnClickListener(this)
+        // Ya no tenemos los botones como atributos
+        //stoneButton?.setOnClickListener(this)
+        //donkeyButton?.setOnClickListener(this)
+        findViewById<Button>(R.id.stone_button).setOnClickListener(this)
+        findViewById<Button>(R.id.donkey_button).setOnClickListener(this)
 
         Log.v(TAG, "Pasando por onCreate")
 
