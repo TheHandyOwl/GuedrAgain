@@ -7,10 +7,18 @@
     tools:context="com.tho.guedragain.MainActivity">
 
     <TextView
+        android:id="@+id/greetingsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_gravity="top|center_horizontal"
         android:text="@string/greetings"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <ImageView
+        android:id="@+id/greetingsImage"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        app:srcCompat="@drawable/ico_01"/>
 
 </FrameLayout>
