@@ -49,10 +49,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         */
 
         // Solución 2: comparando el id de la vista, evitando vistas nulas
+        /*
         if (v != null) {
             if (v.getId() == R.id.stone_button) {
                 Log.v(TAG, "Se ha pulsado stoneButton")
             } else if (v.getId() == R.id.donkey_button) {
+                Log.v(TAG, "Se ha pulsado donkeyButton")
+            } else {
+                Log.v(TAG, "Se ha pulsado algún botón")
+            }
+        }
+        */
+
+        // Solución 3: id en vez de getId()
+        if (v != null) {
+            if (v.id == R.id.stone_button) {
+                Log.v(TAG, "Se ha pulsado stoneButton")
+            } else if (v.id == R.id.donkey_button) {
                 Log.v(TAG, "Se ha pulsado donkeyButton")
             } else {
                 Log.v(TAG, "Se ha pulsado algún botón")
