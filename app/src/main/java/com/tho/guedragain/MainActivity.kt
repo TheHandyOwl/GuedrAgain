@@ -5,29 +5,21 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.ImageView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    // No necesitamos botones como atributos
-    //var stoneButton : Button? = null
-    //var donkeyButton : Button? = null
-
     val TAG = MainActivity::class.java.canonicalName
+    var offlineWeatherImage : ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Ya no tenemos los botones como atributos
-        //stoneButton = findViewById<Button>(R.id.stone_button)
-        //donkeyButton = findViewById<Button>(R.id.donkey_button)
-
-        // Ya no tenemos los botones como atributos
-        //stoneButton?.setOnClickListener(this)
-        //donkeyButton?.setOnClickListener(this)
         findViewById<Button>(R.id.stone_button).setOnClickListener(this)
         findViewById<Button>(R.id.donkey_button).setOnClickListener(this)
+
+        offlineWeatherImage = findViewById<ImageView>(R.id.offline_weather_image)
 
         Log.v(TAG, "Pasando por onCreate")
 
@@ -42,63 +34,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         Log.v(TAG, "Pasando por onClick")
 
-        // Solución 1: comparando vistas
-        /*
-        if (v == stoneButton) {
-            Log.v(TAG, "Se ha pulsado stoneButton")
-        } else if (v == donkeyButton) {
-            Log.v(TAG, "Se ha pulsado donkeyButton")
-        } else {
-            Log.v(TAG, "Se ha pulsado algún botón")
-        }
-        */
-
-        // Solución 2: comparando el id de la vista, evitando vistas nulas
-        /*
-        if (v != null) {
-            if (v.getId() == R.id.stone_button) {
-                Log.v(TAG, "Se ha pulsado stoneButton")
-            } else if (v.getId() == R.id.donkey_button) {
-                Log.v(TAG, "Se ha pulsado donkeyButton")
-            } else {
-                Log.v(TAG, "Se ha pulsado algún botón")
-            }
-        }
-        */
-
-        // Solución 3: id en vez de getId()
-        /*
-        if (v != null) {
-            if (v.id == R.id.stone_button) {
-                Log.v(TAG, "Se ha pulsado stoneButton")
-            } else if (v.id == R.id.donkey_button) {
-                Log.v(TAG, "Se ha pulsado donkeyButton")
-            } else {
-                Log.v(TAG, "Se ha pulsado algún botón")
-            }
-        }
-        */
-
-        // Solución 4: when (v?.id) y closures
-        /*
-        when (v?.id) {
-            R.id.stone_button -> {
-                val a = 5
-                val b = 7
-                val c = a + b
-                Log.v(TAG, "Se ha pulsado stoneButton")
-            }
-            R.id.donkey_button -> Log.v(TAG, "Se ha pulsado donkeyButton")
-            else -> Log.v(TAG, "Se ha pulsado algún botón")
-        }
-        */
-
-        // Solución 5: juntando el when con el Log.v
+        // Solución final sin atributos. Pasamos la vista al crear el listener
         Log.v(TAG, when (v?.id) {
             R.id.stone_button -> "Se ha pulsado stoneButton"
             R.id.donkey_button -> "Se ha pulsado donkeyButton"
             else -> "Se ha pulsado algún botón"
         })
+
+        // Solución 4: preparabamos el when
+        when (v?.id) {
+            R.id.stone_button -> offlineWeatherImage?.setImageResource(R.drawable.offline_weather)
+            R.id.donkey_button -> offlineWeatherImage?.setImageResource(R.drawable.offline_weather2)
+        }
 
     }
 
