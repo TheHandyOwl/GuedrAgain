@@ -29,10 +29,11 @@
         tools:text="Aquí iría el texto de la descripción" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/forecast_image"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/forecast_image"
         android:layout_above="@+id/forecastDescription"
         android:background="#FABADA"
