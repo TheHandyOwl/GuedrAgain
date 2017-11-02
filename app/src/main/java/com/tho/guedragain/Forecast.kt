@@ -1,7 +1,5 @@
 package com.tho.guedragain
 
-/**
- * Created by carlos on 2/11/17.
- */
-class Forecast {
+class Forecast (var maxTemp: Float, var minTemp: Float, var humidity: Float, var description: String, var icon: Int) {
+    
 }
