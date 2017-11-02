@@ -39,5 +39,23 @@
         android:background="#FABADA"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/maxTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Temperatura máxima: 25ºC" />
+
+        <TextView
+            android:id="@+id/minTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Temperatura mínima: 5ºC" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Humedad: 50%" />
+
     </LinearLayout>
 </RelativeLayout>
