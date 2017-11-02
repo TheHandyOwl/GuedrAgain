@@ -39,7 +39,6 @@
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/forecast_image"
         android:layout_above="@+id/forecast_description"
-        android:background="#FABADA"
         android:orientation="vertical">
 
         <TextView
