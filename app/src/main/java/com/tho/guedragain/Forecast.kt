@@ -1,5 +1,3 @@
 package com.tho.guedragain
 
-class Forecast (var maxTemp: Float, var minTemp: Float, var humidity: Float, var description: String, var icon: Int) {
-    
-}
+class Forecast (val maxTemp: Float, val minTemp: Float, val humidity: Float, val description: String, val icon: Int)
