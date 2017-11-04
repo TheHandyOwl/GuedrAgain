@@ -53,10 +53,20 @@ class ForecastActivity : AppCompatActivity() {
         if (item?.itemId == R.id.menu_show_settings) {
             // Aquí sabemos que se ha pulsado la opción de menú de mostrar ajustes
             val intent = Intent(this,SettingsActivity::class.java)
-            startActivity(intent)
+
+            // Esto lo haríamos si la segunda pantalla no nos tiene que devolver nada
+            //startActivity(intent)
+
+            // Esto lo haríamos si la segunda pantalla nos tiene que devolver unos valores
+            startActivityForResult(intent, 1)
+
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
 }
