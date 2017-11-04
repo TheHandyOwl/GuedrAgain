@@ -32,9 +32,9 @@ class ForecastActivity : AppCompatActivity() {
         val maxTempString = getString(R.string.max_temp_format, forecast.maxTemp)
         val minTempString = getString(R.string.min_temp_format, forecast.minTemp)
         val humidityString = getString(R.string.humidity_format, forecast.humidity)
-        maxTemp.setText(maxTempString)
-        minTemp.setText(minTempString)
-        humidity.setText(humidityString)
+        maxTemp.text = maxTempString
+        minTemp.text = minTempString
+        humidity.text = humidityString
     }
 
 }
