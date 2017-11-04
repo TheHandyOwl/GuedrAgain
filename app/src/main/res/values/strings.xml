@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GuedrAgain</string>
+    <string name="app_name">GüedrAgain</string>
     <string name="greetings">Hi dude!</string>
     <string name="offline_description">Imagen que representa el tiempo cuando no hay internet</string>
     <string name="stone_button">Piedra</string>
