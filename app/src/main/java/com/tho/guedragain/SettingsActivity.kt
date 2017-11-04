@@ -15,8 +15,14 @@ class SettingsActivity: AppCompatActivity() {
 
     }
 
-    private fun cancelSettings() { }
+    private fun cancelSettings() {
+        // Finalizamos esta actividad, regresando a la anterior
+        finish()
+    }
 
-    private fun acceptSettings() { }
+    private fun acceptSettings() {
+        // Finalizamos esta actividad, regresando a la anterior
+        finish()
+    }
 
 }
