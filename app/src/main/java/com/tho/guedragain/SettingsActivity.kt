@@ -1,4 +1,6 @@
 package com.tho.guedragain
 
-class SettingsActivity {
+import android.support.v7.app.AppCompatActivity
+
+class SettingsActivity: AppCompatActivity() {
 }
