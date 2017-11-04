@@ -3,6 +3,7 @@ package com.tho.guedragain
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
@@ -80,9 +81,17 @@ class ForecastActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 val unitSelected = data?.getIntExtra(SettingsActivity.EXTRA_UNITS, R.id.celsius_rb)
                 when (unitSelected) {
-                    R.id.celsius_rb -> Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Celsius")
+                    R.id.celsius_rb -> {
+                        Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Celsius")
+
+                    }
                     R.id.fahrenheit_rb -> Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Fahrenheit")
                 }
+                PreferenceManager.getDefaultSharedPreferences(this)
+                        .edit()
+                        //.putBoolean(PREFERENCES_SHOW_CELSIUS, true)
+                        .putBoolean(PREFERENCES_SHOW_CELSIUS, unitSelected == R.id.celsius_rb)
+                        .apply()
             } else {
                 Log.v(TAG,"Soy ForecastActivity y han pulsado CANCEL")
             }
