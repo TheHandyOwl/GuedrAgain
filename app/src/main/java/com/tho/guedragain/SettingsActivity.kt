@@ -11,8 +11,12 @@ class SettingsActivity: AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         findViewById<View>(R.id.ok_btn).setOnClickListener { acceptSettings() }
+        findViewById<View>(R.id.cancel_btn).setOnClickListener { cancelSettings() }
+
     }
 
+    private fun cancelSettings() { }
+
     private fun acceptSettings() { }
-    
+
 }
