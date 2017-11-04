@@ -2,6 +2,8 @@ package com.tho.guedragain
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -36,4 +38,14 @@ class ForecastActivity : AppCompatActivity() {
         forecast = Forecast(25f, 10f, 35f, "Soleado con alguna nube", R.drawable.ico_01)
     }
 
+    // Este método define qué opciones de menú tenemos
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    // Este método dice que se hace una vez que se ha pulsado una opción de menú
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return super.onOptionsItemSelected(item)
+    }
+    
 }
