@@ -78,7 +78,7 @@ class ForecastActivity : AppCompatActivity() {
 
         if (requestCode == REQUEST_UNITS) {
             if (resultCode == Activity.RESULT_OK) {
-                val unitSelected = data?.getIntExtra("units", R.id.celsius_rb)
+                val unitSelected = data?.getIntExtra(SettingsActivity.EXTRA_UNITS, R.id.celsius_rb)
                 if ( unitSelected == R.id.celsius_rb) {
                     Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Celsius")
                 } else if ( unitSelected == R.id.fahrenheit_rb) {

@@ -10,6 +10,9 @@ import android.widget.RadioGroup
 
 class SettingsActivity: AppCompatActivity() {
 
+    companion object {
+        val EXTRA_UNITS = "EXTRA_UNITS"
+    }
     var radioGroup: RadioGroup? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +34,7 @@ class SettingsActivity: AppCompatActivity() {
 
     private fun acceptSettings() {
         val returnIntent = Intent()
-        returnIntent.putExtra("units", radioGroup?.checkedRadioButtonId)
+        returnIntent.putExtra(EXTRA_UNITS, radioGroup?.checkedRadioButtonId)
         setResult(Activity.RESULT_OK, returnIntent)
         // Finalizamos esta actividad, regresando a la anterior
         finish()
