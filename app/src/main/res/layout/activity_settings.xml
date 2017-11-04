@@ -20,24 +20,27 @@
 
     <RadioGroup
         android:id="@+id/units_rg"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="99dp">
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/header_text"
+        app:layout_constraintStart_toStartOf="@+id/header_text"
+        app:layout_constraintTop_toBottomOf="@+id/header_text">
 
         <RadioButton
             android:id="@+id/celsius_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="@string/celsius_units" />
 
         <RadioButton
             android:id="@+id/fahrenheit_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="@string/fahrenheit_units" />
     </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>

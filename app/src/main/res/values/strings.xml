@@ -9,4 +9,6 @@
     <string name="min_temp_format">Temp. mínima: %.2f ºC</string>
     <string name="humidity_format">Humedad: %.0f%%</string>
     <string name="choose_units">Elige las unidades de temperatura:</string>
+    <string name="celsius_units">Unidades Celsius</string>
+    <string name="fahrenheit_units">Unidades Fahrenheit</string>
 </resources>
