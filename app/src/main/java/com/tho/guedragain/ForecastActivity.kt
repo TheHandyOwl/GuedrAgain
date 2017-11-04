@@ -40,7 +40,11 @@ class ForecastActivity : AppCompatActivity() {
 
     // Este método define qué opciones de menú tenemos
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        return super.onCreateOptionsMenu(menu)
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.settings, menu)
+
+        // Indicamos si debe mostrar menú o no
+        return true
     }
 
     // Este método dice que se hace una vez que se ha pulsado una opción de menú
