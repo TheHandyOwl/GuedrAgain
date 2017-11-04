@@ -1,5 +1,6 @@
 package com.tho.guedragain
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -49,6 +50,12 @@ class ForecastActivity : AppCompatActivity() {
 
     // Este método dice que se hace una vez que se ha pulsado una opción de menú
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.menu_show_settings) {
+            // Aquí sabemos que se ha pulsado la opción de menú de mostrar ajustes
+            val intent = Intent(this,SettingsActivity::class.java)
+            startActivity(intent)
+            return true
+        }
         return super.onOptionsItemSelected(item)
     }
 
