@@ -60,7 +60,7 @@ class ForecastActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId == R.id.menu_show_settings) {
             // Aquí sabemos que se ha pulsado la opción de menú de mostrar ajustes
-            val intent = Intent(this,SettingsActivity::class.java)
+            val intent = SettingsActivity.intent(this)
 
             // Esto lo haríamos si la segunda pantalla no nos tiene que devolver nada
             //startActivity(intent)

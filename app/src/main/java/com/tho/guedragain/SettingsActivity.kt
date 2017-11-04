@@ -12,6 +12,8 @@ class SettingsActivity: AppCompatActivity() {
 
     companion object {
         val EXTRA_UNITS = "EXTRA_UNITS"
+
+        fun intent(context: Context) = Intent(context, SettingsActivity::class.java)
     }
     var radioGroup: RadioGroup? = null
 
