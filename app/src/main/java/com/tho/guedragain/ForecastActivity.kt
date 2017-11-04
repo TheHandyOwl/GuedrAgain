@@ -7,18 +7,18 @@ import android.widget.TextView
 
 class ForecastActivity : AppCompatActivity() {
 
-    val TAG = ForecastActivity::class.java.canonicalName
+    var forecast: Forecast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forecast)
 
-        val forecast = Forecast(25f, 10f, 35f, "Soleado con alguna nube", R.drawable.ico_01)
+        forecast = Forecast(25f, 10f, 35f, "Soleado con alguna nube", R.drawable.ico_01)
 
-        setForecast(forecast)
+        updateForecast()
     }
 
-    private fun setForecast(forecast: Forecast) {
+    private fun updateForecast() {
         // Accedemos a las vistas de la interfaz
         val forecastImage = findViewById<ImageView>(R.id.forecast_image)
         val maxTemp = findViewById<TextView>(R.id.max_temp)
