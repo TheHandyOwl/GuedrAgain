@@ -12,6 +12,10 @@ import android.widget.TextView
 
 class ForecastActivity : AppCompatActivity() {
 
+    companion object {
+        val REQUEST_UNITS = 1
+    }
+
     val TAG = ForecastActivity::class.java.canonicalName
 
     var forecast: Forecast? = null
@@ -62,7 +66,7 @@ class ForecastActivity : AppCompatActivity() {
             //startActivity(intent)
 
             // Esto lo haríamos si la segunda pantalla nos tiene que devolver unos valores
-            startActivityForResult(intent, 1)
+            startActivityForResult(intent, REQUEST_UNITS)
 
             return true
         }
@@ -72,7 +76,7 @@ class ForecastActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == 1) {
+        if (requestCode == REQUEST_UNITS) {
             if (resultCode == Activity.RESULT_OK) {
                 Log.v(TAG,"Soy ForecastActivity y han pulsado OK")
             } else {
