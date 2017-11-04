@@ -85,7 +85,9 @@ class ForecastActivity : AppCompatActivity() {
                         Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Celsius")
                         PreferenceManager.getDefaultSharedPreferences(this)
                                 .edit()
-                                .putBoolean()
+                                //.putBoolean(PREFERENCES_SHOW_CELSIUS, true)
+                                .putBoolean(PREFERENCES_SHOW_CELSIUS, unitSelected == R.id.celsius_rb)
+                                .apply()
                     }
                     R.id.fahrenheit_rb -> Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Fahrenheit")
                 }
