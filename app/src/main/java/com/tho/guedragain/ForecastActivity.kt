@@ -27,7 +27,14 @@ class ForecastActivity : AppCompatActivity() {
         val forecastDescription = findViewById<TextView>(R.id.forecast_description)
 
         // Actualizamos la visa con el modelo
-
+        forecastImage.setImageResource(forecast.icon)
+        forecastDescription.text = forecast.description
+        val maxTempString = getString(R.string.max_temp_format, forecast.maxTemp)
+        val minTempString = getString(R.string.min_temp_format, forecast.minTemp)
+        val humidityString = getString(R.string.humidity_format, forecast.humidity)
+        maxTemp.setText(maxTempString)
+        minTemp.setText(minTempString)
+        humidity.setText(humidityString)
     }
 
 }
