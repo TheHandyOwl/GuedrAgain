@@ -1,5 +1,7 @@
 package com.tho.guedragain
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -21,11 +23,13 @@ class SettingsActivity: AppCompatActivity() {
     }
 
     private fun cancelSettings() {
+        setResult(Activity.RESULT_CANCELED)
         // Finalizamos esta actividad, regresando a la anterior
         finish()
     }
 
     private fun acceptSettings() {
+        setResult(Activity.RESULT_OK)
         // Finalizamos esta actividad, regresando a la anterior
         finish()
     }
