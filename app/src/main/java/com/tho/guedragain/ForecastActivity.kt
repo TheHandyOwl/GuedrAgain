@@ -26,31 +26,9 @@ class ForecastActivity : AppCompatActivity() {
 
     val TAG = ForecastActivity::class.java.canonicalName
 
-    var forecast: Forecast? = null
-        set(value) {
-            field = value
-            // Accedemos a las vistas de la interfaz
-            val forecastImage = findViewById<ImageView>(R.id.forecast_image)
-            maxTemp = findViewById(R.id.max_temp)
-            minTemp = findViewById(R.id.min_temp)
-            val humidity = findViewById<TextView>(R.id.humidity)
-            val forecastDescription = findViewById<TextView>(R.id.forecast_description)
-
-            // Actualizamos la visa con el modelo
-            value?.let {
-                forecastImage.setImageResource(value.icon)
-                forecastDescription.text = value.description
-                updateTemperature()
-                val humidityString = getString(R.string.humidity_format, value.humidity)
-                humidity.text = humidityString
-            }
-        }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forecast)
-
-        forecast = Forecast(25f, 10f, 35f, "Soleado con alguna nube", R.drawable.ico_01)
     }
 
     // Este método define qué opciones de menú tenemos
