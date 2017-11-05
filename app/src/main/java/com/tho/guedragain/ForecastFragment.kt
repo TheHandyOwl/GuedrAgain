@@ -62,7 +62,7 @@ class ForecastFragment: Fragment()  {
     }
 
     private fun temperatureUnits() = if (PreferenceManager
-            .getDefaultSharedPreferences(this)
+            .getDefaultSharedPreferences(activity)
             .getBoolean(PREFERENCES_SHOW_CELSIUS, true)) {
         Forecast.TempUnit.CELSIUS
     } else {
