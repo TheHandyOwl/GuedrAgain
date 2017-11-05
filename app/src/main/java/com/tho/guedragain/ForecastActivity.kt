@@ -17,14 +17,18 @@ class ForecastActivity : AppCompatActivity() {
         val REQUEST_UNITS = 1
     }
 
+    var maxTemp: TextView? = null
+    var minTemp: TextView? = null
+
     val TAG = ForecastActivity::class.java.canonicalName
 
     var forecast: Forecast? = null
         set(value) {
+            field = value
             // Accedemos a las vistas de la interfaz
             val forecastImage = findViewById<ImageView>(R.id.forecast_image)
-            val maxTemp = findViewById<TextView>(R.id.max_temp)
-            val minTemp = findViewById<TextView>(R.id.min_temp)
+            maxTemp = findViewById<TextView>(R.id.max_temp)
+            minTemp = findViewById<TextView>(R.id.min_temp)
             val humidity = findViewById<TextView>(R.id.humidity)
             val forecastDescription = findViewById<TextView>(R.id.forecast_description)
 
@@ -32,11 +36,8 @@ class ForecastActivity : AppCompatActivity() {
             if(value != null) {
                 forecastImage.setImageResource(value.icon)
                 forecastDescription.text = value.description
-                val maxTempString = getString(R.string.max_temp_format, value.maxTemp)
-                val minTempString = getString(R.string.min_temp_format, value.minTemp)
+                updateTemperature()
                 val humidityString = getString(R.string.humidity_format, value.humidity)
-                maxTemp.text = maxTempString
-                minTemp.text = minTempString
                 humidity.text = humidityString
             }
         }
@@ -92,11 +93,35 @@ class ForecastActivity : AppCompatActivity() {
                         //.putBoolean(PREFERENCES_SHOW_CELSIUS, true)
                         .putBoolean(PREFERENCES_SHOW_CELSIUS, unitSelected == R.id.celsius_rb)
                         .apply()
+                updateTemperature()
             } else {
                 Log.v(TAG,"Soy ForecastActivity y han pulsado CANCEL")
             }
         }
 
+    }
+
+    private fun updateTemperature() {
+        var units = temperatureUnits()
+        var unitsString = temperatureUnitsString(units)
+        var maxTempString = getString(R.string.max_temp_format, forecast?.maxTemp, unitsString)
+        var minTempString = getString(R.string.min_temp_format, forecast?.minTemp, unitsString)
+        maxTemp?.text = maxTempString
+        minTemp?.text = minTempString
+    }
+
+    private fun temperatureUnitsString(units: Forecast.TempUnit) = when (units) {
+        Forecast.TempUnit.CELSIUS -> "ºC"
+        else -> "F"
+    }
+
+    private fun temperatureUnits() = if
+            (PreferenceManager
+            .getDefaultSharedPreferences(this)
+            .getBoolean(PREFERENCES_SHOW_CELSIUS, true)) {
+        Forecast.TempUnit.CELSIUS
+    } else {
+        Forecast.TempUnit.FAHRENHEIT
     }
 
 }
