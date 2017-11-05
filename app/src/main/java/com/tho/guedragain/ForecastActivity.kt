@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 class ForecastActivity : AppCompatActivity() {
 
@@ -90,9 +91,12 @@ class ForecastActivity : AppCompatActivity() {
                 when (unitSelected) {
                     R.id.celsius_rb -> {
                         Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Celsius")
-
+                        Toast.makeText(this,"Celsius seleccionado", Toast.LENGTH_LONG).show()
                     }
-                    R.id.fahrenheit_rb -> Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Fahrenheit")
+                    R.id.fahrenheit_rb -> {
+                        Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Fahrenheit")
+                        Toast.makeText(this,"Fahrenheit seleccionado", Toast.LENGTH_LONG).show()
+                    }
                 }
                 PreferenceManager.getDefaultSharedPreferences(this)
                         .edit()
