@@ -24,6 +24,7 @@ class ForecastActivity : AppCompatActivity() {
 
     var forecast: Forecast? = null
         set(value) {
+            field = value
             // Accedemos a las vistas de la interfaz
             val forecastImage = findViewById<ImageView>(R.id.forecast_image)
             maxTemp = findViewById<TextView>(R.id.max_temp)
