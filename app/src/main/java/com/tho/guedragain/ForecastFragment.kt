@@ -86,7 +86,6 @@ class ForecastFragment: Fragment()  {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-
         if (requestCode == REQUEST_UNITS) {
             if (resultCode == Activity.RESULT_OK) {
                 val unitSelected = data?.getIntExtra(SettingsActivity.EXTRA_UNITS, R.id.celsius_rb)
