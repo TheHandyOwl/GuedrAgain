@@ -35,7 +35,7 @@ class ForecastUnitTest {
 
     @Test
     fun minTempUnitsConversionFahrenheit_isCorrect() {
-        assertEquals(50f, forecast.getMaxTemp(Forecast.TempUnit.FAHRENHEIT))
+        assertEquals(50f, forecast.getMinTemp(Forecast.TempUnit.FAHRENHEIT))
     }
 
 }
