@@ -18,6 +18,7 @@ class ForecastUnitTest {
                 R.drawable.ico_01)
     }
 
+    // Tests básicos
     @Test
     fun maxTempUnitsCelsius_isCorrect() {
         assertEquals(25f, forecast.getMaxTemp(Forecast.TempUnit.CELSIUS))
@@ -36,6 +37,27 @@ class ForecastUnitTest {
     @Test
     fun minTempUnitsConversionFahrenheit_isCorrect() {
         assertEquals(50f, forecast.getMinTemp(Forecast.TempUnit.FAHRENHEIT))
+    }
+
+    // Tests con excepciones
+    @Test (expected = IllegalArgumentException::class)
+    fun humidityOverRange_throwsArgumentException() {
+        Forecast(
+                25f,
+                10f,
+                35f,
+                "Soleado con alguna nube",
+                R.drawable.ico_01)
+    }
+
+    @Test (expected = IllegalArgumentException::class)
+    fun humidityUnderRange_throwsArgumentException() {
+        Forecast(
+                25f,
+                10f,
+                -1f,
+                "Soleado con alguna nube",
+                R.drawable.ico_01)
     }
 
 }
