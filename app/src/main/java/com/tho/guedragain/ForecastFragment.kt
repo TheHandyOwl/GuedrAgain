@@ -111,7 +111,7 @@ class ForecastFragment: Fragment()  {
                 updateTemperature()
 
                 Snackbar.make(
-                        root.findViewById<View>(android.R.id.content),
+                        root,
                         "Han cambiado las preferencias",
                         Snackbar.LENGTH_LONG)
                         .setAction("Deshacer", {
