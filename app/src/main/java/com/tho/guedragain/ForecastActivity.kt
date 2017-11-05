@@ -17,8 +17,8 @@ class ForecastActivity : AppCompatActivity() {
         val REQUEST_UNITS = 1
     }
 
-    var maxTemp: TextView? = null
-    var minTemp: TextView? = null
+    lateinit var maxTemp: TextView
+    lateinit var minTemp: TextView
 
     val TAG = ForecastActivity::class.java.canonicalName
 
@@ -27,13 +27,13 @@ class ForecastActivity : AppCompatActivity() {
             field = value
             // Accedemos a las vistas de la interfaz
             val forecastImage = findViewById<ImageView>(R.id.forecast_image)
-            maxTemp = findViewById<TextView>(R.id.max_temp)
-            minTemp = findViewById<TextView>(R.id.min_temp)
+            maxTemp = findViewById(R.id.max_temp)
+            minTemp = findViewById(R.id.min_temp)
             val humidity = findViewById<TextView>(R.id.humidity)
             val forecastDescription = findViewById<TextView>(R.id.forecast_description)
 
             // Actualizamos la visa con el modelo
-            if(value != null) {
+            value?.let {
                 forecastImage.setImageResource(value.icon)
                 forecastDescription.text = value.description
                 updateTemperature()
@@ -112,8 +112,8 @@ class ForecastActivity : AppCompatActivity() {
         var unitsString = temperatureUnitsString(units)
         var maxTempString = getString(R.string.max_temp_format, forecast?.getMaxTemp(units), unitsString)
         var minTempString = getString(R.string.min_temp_format, forecast?.getMinTemp(units), unitsString)
-        maxTemp?.text = maxTempString
-        minTemp?.text = minTempString
+        maxTemp.text = maxTempString
+        minTemp.text = minTempString
     }
 
     private fun temperatureUnitsString(units: Forecast.TempUnit) = when (units) {
