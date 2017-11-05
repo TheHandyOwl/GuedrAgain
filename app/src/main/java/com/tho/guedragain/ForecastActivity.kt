@@ -110,8 +110,8 @@ class ForecastActivity : AppCompatActivity() {
     private fun updateTemperature() {
         var units = temperatureUnits()
         var unitsString = temperatureUnitsString(units)
-        var maxTempString = getString(R.string.max_temp_format, forecast?.maxTemp, unitsString)
-        var minTempString = getString(R.string.min_temp_format, forecast?.minTemp, unitsString)
+        var maxTempString = getString(R.string.max_temp_format, forecast?.getMaxTemp(units), unitsString)
+        var minTempString = getString(R.string.min_temp_format, forecast?.getMinTemp(units), unitsString)
         maxTemp?.text = maxTempString
         minTemp?.text = minTempString
     }
