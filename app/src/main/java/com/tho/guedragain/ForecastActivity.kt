@@ -2,6 +2,7 @@ package com.tho.guedragain
 
 import android.app.Activity
 import android.content.Intent
+import android.media.audiofx.Equalizer
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
@@ -101,17 +102,28 @@ class ForecastActivity : AppCompatActivity() {
                     }
                 }
 
-                Snackbar.make(
-                        findViewById<View>(android.R.id.content),
-                        "Han cambiado las preferencias",
-                        Snackbar.LENGTH_LONG)
-                        .show()
+                val oldShowCelsius = temperatureUnits()
+
                 PreferenceManager.getDefaultSharedPreferences(this)
                         .edit()
                         //.putBoolean(PREFERENCES_SHOW_CELSIUS, true)
                         .putBoolean(PREFERENCES_SHOW_CELSIUS, unitSelected == R.id.celsius_rb)
                         .apply()
                 updateTemperature()
+
+                Snackbar.make(
+                        findViewById<View>(android.R.id.content),
+                        "Han cambiado las preferencias",
+                        Snackbar.LENGTH_LONG)
+                        .setAction("Deshacer", {
+                            PreferenceManager.getDefaultSharedPreferences(this)
+                                    .edit()
+                                    //.putBoolean(PREFERENCES_SHOW_CELSIUS, true)
+                                    .putBoolean(PREFERENCES_SHOW_CELSIUS, oldShowCelsius == Forecast.TempUnit.CELSIUS)
+                                    .apply()
+                            updateTemperature()
+                        })
+                        .show()
             } else {
                 Log.v(TAG,"Soy ForecastActivity y han pulsado CANCEL")
             }
