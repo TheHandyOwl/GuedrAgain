@@ -1,9 +1,17 @@
 package com.tho.guedragain
 
+import java.lang.IllegalArgumentException
+
 class Forecast (val maxTemp: Float, val minTemp: Float, val humidity: Float, val description: String, val icon: Int) {
     enum class TempUnit {
         CELSIUS,
         FAHRENHEIT
+    }
+
+    init {
+        if (humidity !in 0f..100f) {
+            throw IllegalArgumentException("Humidity should be between 0 and 100")
+        }
     }
 
     protected fun toFahrenheit(celsius: Float) = celsius * 1.8f + 32

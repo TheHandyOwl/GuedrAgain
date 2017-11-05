@@ -45,7 +45,7 @@ class ForecastUnitTest {
         Forecast(
                 25f,
                 10f,
-                35f,
+                100.01f,
                 "Soleado con alguna nube",
                 R.drawable.ico_01)
     }
