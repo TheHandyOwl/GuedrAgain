@@ -11,6 +11,7 @@ import android.widget.TextView
 
 class ForecastFragment: Fragment()  {
 
+    lateinit var root: View
     lateinit var maxTemp: TextView
     lateinit var minTemp: TextView
 
@@ -18,11 +19,11 @@ class ForecastFragment: Fragment()  {
         set(value) {
             field = value
             // Accedemos a las vistas de la interfaz
-            val forecastImage = findViewById<ImageView>(R.id.forecast_image)
-            maxTemp = findViewById(R.id.max_temp)
-            minTemp = findViewById(R.id.min_temp)
-            val humidity = findViewById<TextView>(R.id.humidity)
-            val forecastDescription = findViewById<TextView>(R.id.forecast_description)
+            val forecastImage = root.findViewById<ImageView>(R.id.forecast_image)
+            maxTemp = root.findViewById(R.id.max_temp)
+            minTemp = root.findViewById(R.id.min_temp)
+            val humidity = root.findViewById<TextView>(R.id.humidity)
+            val forecastDescription = root.findViewById<TextView>(R.id.forecast_description)
 
             // Actualizamos la visa con el modelo
             value?.let {
@@ -38,8 +39,11 @@ class ForecastFragment: Fragment()  {
         super.onCreateView(inflater, container, savedInstanceState)
         inflater?.let {
             forecast = Forecast(25f, 10f, 35f, "Soleado con alguna nube", R.drawable.ico_01)
+            // it se refiere a la variable, que no puede ser nombrada dentro del let
+            root = it.inflate(R.layout.fragment_forecast, container, false)
         }
 
+        return root
     }
 
 
@@ -57,13 +61,12 @@ class ForecastFragment: Fragment()  {
         else -> "F"
     }
 
-    private fun temperatureUnits() = if
-                                             (PreferenceManager
+    private fun temperatureUnits() = if (PreferenceManager
             .getDefaultSharedPreferences(this)
             .getBoolean(PREFERENCES_SHOW_CELSIUS, true)) {
         Forecast.TempUnit.CELSIUS
     } else {
         Forecast.TempUnit.FAHRENHEIT
     }
-    
+
 }
