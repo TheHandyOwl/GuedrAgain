@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tho.guedragain.ForecastActivity">
+    tools:context="com.tho.guedragain.activity.ForecastActivity">
 
     <fragment
         android:id="@+id/forecast_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.tho.guedragain.ForecastFragment"/>
+        android:name="com.tho.guedragain.fragment.ForecastFragment"/>
 
 </FrameLayout>
