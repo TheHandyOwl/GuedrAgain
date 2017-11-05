@@ -8,7 +8,8 @@ import android.test.suitebuilder.annotation.LargeTest;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.TextView;
+
+import com.tho.guedragain.activity.ForecastActivity;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

@@ -1,4 +1,4 @@
-package com.tho.guedragain
+package com.tho.guedragain.model
 
 import java.lang.IllegalArgumentException
 
