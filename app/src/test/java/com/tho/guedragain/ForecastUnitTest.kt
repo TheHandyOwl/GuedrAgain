@@ -1,5 +1,6 @@
 package com.tho.guedragain
 
+import com.tho.guedragain.model.Forecast
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
