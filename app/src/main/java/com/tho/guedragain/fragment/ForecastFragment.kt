@@ -1,4 +1,4 @@
-package com.tho.guedragain
+package com.tho.guedragain.fragment
 
 import android.app.Activity
 import android.app.Fragment
@@ -10,6 +10,11 @@ import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import com.tho.guedragain.PREFERENCES_SHOW_CELSIUS
+import com.tho.guedragain.R
+import com.tho.guedragain.activity.ForecastActivity
+import com.tho.guedragain.activity.SettingsActivity
+import com.tho.guedragain.model.Forecast
 
 class ForecastFragment: Fragment()  {
 
