@@ -3,13 +3,15 @@ package com.tho.guedragain
 import android.app.Fragment
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 
 class ForecastFragment: Fragment()  {
+
+    companion object {
+        val REQUEST_UNITS = 1
+    }
 
     lateinit var root: View
     lateinit var maxTemp: TextView
@@ -44,6 +46,35 @@ class ForecastFragment: Fragment()  {
         }
 
         return root
+    }
+
+    // Este método define qué opciones de menú tenemos
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+            inflater?.inflate(R.menu.settings, menu)
+    }
+
+    // Este método dice que se hace una vez que se ha pulsado una opción de menú
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.menu_show_settings) {
+            // Aquí sabemos que se ha pulsado la opción de menú de mostrar ajustes
+            //val intent = SettingsActivity.intent(this)
+            val units = if (temperatureUnits() == Forecast.TempUnit.CELSIUS) {
+                R.id.celsius_rb
+            } else {
+                R.id.fahrenheit_rb
+            }
+            val intent = SettingsActivity.intent(activity, units)
+
+            // Esto lo haríamos si la segunda pantalla no nos tiene que devolver nada
+            //startActivity(intent)
+
+            // Esto lo haríamos si la segunda pantalla nos tiene que devolver unos valores
+            startActivityForResult(intent, REQUEST_UNITS)
+
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
