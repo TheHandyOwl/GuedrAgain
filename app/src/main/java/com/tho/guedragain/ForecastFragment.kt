@@ -2,6 +2,7 @@ package com.tho.guedragain
 
 import android.app.Fragment
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class ForecastFragment: Fragment()  {
+
+    lateinit var maxTemp: TextView
+    lateinit var minTemp: TextView
 
     var forecast: Forecast? = null
         set(value) {
@@ -37,4 +41,29 @@ class ForecastFragment: Fragment()  {
         }
 
     }
+
+
+    private fun updateTemperature() {
+        var units = temperatureUnits()
+        var unitsString = temperatureUnitsString(units)
+        var maxTempString = getString(R.string.max_temp_format, forecast?.getMaxTemp(units), unitsString)
+        var minTempString = getString(R.string.min_temp_format, forecast?.getMinTemp(units), unitsString)
+        maxTemp.text = maxTempString
+        minTemp.text = minTempString
+    }
+
+    private fun temperatureUnitsString(units: Forecast.TempUnit) = when (units) {
+        Forecast.TempUnit.CELSIUS -> "ºC"
+        else -> "F"
+    }
+
+    private fun temperatureUnits() = if
+                                             (PreferenceManager
+            .getDefaultSharedPreferences(this)
+            .getBoolean(PREFERENCES_SHOW_CELSIUS, true)) {
+        Forecast.TempUnit.CELSIUS
+    } else {
+        Forecast.TempUnit.FAHRENHEIT
+    }
+    
 }

@@ -21,9 +21,6 @@ class ForecastActivity : AppCompatActivity() {
         val REQUEST_UNITS = 1
     }
 
-    lateinit var maxTemp: TextView
-    lateinit var minTemp: TextView
-
     val TAG = ForecastActivity::class.java.canonicalName
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,29 +104,6 @@ class ForecastActivity : AppCompatActivity() {
             }
         }
 
-    }
-
-    private fun updateTemperature() {
-        var units = temperatureUnits()
-        var unitsString = temperatureUnitsString(units)
-        var maxTempString = getString(R.string.max_temp_format, forecast?.getMaxTemp(units), unitsString)
-        var minTempString = getString(R.string.min_temp_format, forecast?.getMinTemp(units), unitsString)
-        maxTemp.text = maxTempString
-        minTemp.text = minTempString
-    }
-
-    private fun temperatureUnitsString(units: Forecast.TempUnit) = when (units) {
-        Forecast.TempUnit.CELSIUS -> "ºC"
-        else -> "F"
-    }
-
-    private fun temperatureUnits() = if
-            (PreferenceManager
-            .getDefaultSharedPreferences(this)
-            .getBoolean(PREFERENCES_SHOW_CELSIUS, true)) {
-        Forecast.TempUnit.CELSIUS
-    } else {
-        Forecast.TempUnit.FAHRENHEIT
     }
 
 }
