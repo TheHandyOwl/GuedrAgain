@@ -46,9 +46,9 @@ class ForecastFragment: Fragment()  {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         inflater?.let {
-            forecast = Forecast(25f, 10f, 35f, "Soleado con alguna nube", R.drawable.ico_01)
             // it se refiere a la variable, que no puede ser nombrada dentro del let
             root = it.inflate(R.layout.fragment_forecast, container, false)
+            forecast = Forecast(25f, 10f, 35f, "Soleado con alguna nube", R.drawable.ico_01)
         }
 
         return root
