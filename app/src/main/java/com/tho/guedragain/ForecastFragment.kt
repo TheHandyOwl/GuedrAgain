@@ -1,8 +1,12 @@
 package com.tho.guedragain
 
+import android.app.Activity
 import android.app.Fragment
+import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.support.design.widget.Snackbar
+import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,6 +16,8 @@ class ForecastFragment: Fragment()  {
     companion object {
         val REQUEST_UNITS = 1
     }
+
+    val TAG = ForecastActivity::class.java.canonicalName
 
     lateinit var root: View
     lateinit var maxTemp: TextView
@@ -77,6 +83,51 @@ class ForecastFragment: Fragment()  {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+
+        if (requestCode == REQUEST_UNITS) {
+            if (resultCode == Activity.RESULT_OK) {
+                val unitSelected = data?.getIntExtra(SettingsActivity.EXTRA_UNITS, R.id.celsius_rb)
+                when (unitSelected) {
+                    R.id.celsius_rb -> {
+                        Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Celsius")
+                        //Toast.makeText(this,"Celsius seleccionado", Toast.LENGTH_LONG).show()
+                    }
+                    R.id.fahrenheit_rb -> {
+                        Log.v(TAG, "Soy ForecastActivity, han pulsado OK y las unidades son Fahrenheit")
+                        //Toast.makeText(this,"Fahrenheit seleccionado", Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                val oldShowCelsius = temperatureUnits()
+
+                PreferenceManager.getDefaultSharedPreferences(activity)
+                        .edit()
+                        //.putBoolean(PREFERENCES_SHOW_CELSIUS, true)
+                        .putBoolean(PREFERENCES_SHOW_CELSIUS, unitSelected == R.id.celsius_rb)
+                        .apply()
+                updateTemperature()
+
+                Snackbar.make(
+                        root.findViewById<View>(android.R.id.content),
+                        "Han cambiado las preferencias",
+                        Snackbar.LENGTH_LONG)
+                        .setAction("Deshacer", {
+                            PreferenceManager.getDefaultSharedPreferences(activity)
+                                    .edit()
+                                    //.putBoolean(PREFERENCES_SHOW_CELSIUS, true)
+                                    .putBoolean(PREFERENCES_SHOW_CELSIUS, oldShowCelsius == Forecast.TempUnit.CELSIUS)
+                                    .apply()
+                            updateTemperature()
+                        })
+                        .show()
+            } else {
+                Log.v(TAG,"Soy ForecastActivity y han pulsado CANCEL")
+            }
+        }
+    }
 
     private fun updateTemperature() {
         var units = temperatureUnits()
